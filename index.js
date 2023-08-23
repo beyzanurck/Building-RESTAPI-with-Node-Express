@@ -12,6 +12,10 @@ app.use(cors());
 //Middleware - pwd
 const _dirname = path.resolve();
 
+app.get('/', (req, res) => {
+    console.log('home page');
+    res.send("This is Beyza");
+})
 
 //Starts the server
 app.listen(port, ()=>{
