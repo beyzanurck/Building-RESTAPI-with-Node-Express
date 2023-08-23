@@ -12,3 +12,8 @@ app.use(cors());
 //Middleware - pwd
 const _dirname = path.resolve();
 
+
+//Starts the server
+app.listen(port, ()=>{
+    console.log(`Server is running on port ${port}`)
+})
