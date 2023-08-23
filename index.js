@@ -20,9 +20,22 @@ app.get('/', (req, res) => {
 })
 
 app.get('/books', (req, res)=> {
+    console.log(BOOKS)
     res.json(BOOKS)
 })
 
+app.get('/books/:id', (req, res) => {
+    const { id } = req.params;
+    //console.log(req.params.id)
+
+    const requestedBook = BOOKS.find(book => book.ID === id)
+    if(requestedBook){
+        res.json(requestedBook)
+    }
+    else{
+        res.status(404).send(`Sorry I don't have that book`);
+    }
+})
 
 //Starts the server
 app.listen(port, ()=>{
