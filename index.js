@@ -24,6 +24,7 @@ app.get('/books', (req, res)=> {
     res.json(BOOKS)
 })
 
+
 app.get('/books/:id', (req, res) => {
     const { id } = req.params;
     //console.log(req.params.id)
@@ -36,6 +37,21 @@ app.get('/books/:id', (req, res) => {
         res.status(404).send(`Sorry I don't have that book`);
     }
 })
+
+// Endpoint for adding a new book
+app.post('/books/posts', (req, res) => {
+    const newBook = {
+        ID: '8',
+        title: 'The Power Of Habits',
+        author: 'Charless Duhigg', 
+        format: 'Paperback' 
+    };
+
+    BOOKS.push(newBook);
+
+    res.status(201).json({ message: 'New book added successfully', book: newBook });
+})
+
 
 //Starts the server
 app.listen(port, ()=>{
