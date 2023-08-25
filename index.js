@@ -48,7 +48,7 @@ app.post('/books/posts', (req, res) => {
 
     BOOKS.push(newBook);
 
-    res.status(201).json({ message: 'New book added successfully', book: newBook });
+    res.status(200).json({ message: 'New book added successfully', book: newBook });
 })
 
 // Endpoint for deleting a book
