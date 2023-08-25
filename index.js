@@ -52,6 +52,20 @@ app.post('/books/posts', (req, res) => {
     res.status(201).json({ message: 'New book added successfully', book: newBook });
 })
 
+// Endpoint for deleting a book
+app.delete('/books/:id', (req, res) => {
+    const { id } = req.params;
+
+    const bookIndex = BOOKS.findIndex(book => book.ID === id)
+    if(bookIndex !== -1){
+
+        BOOKS.splice(bookIndex,1)
+        res.status(200).json({ message: 'The book is deleted successfully' });
+    }
+    else{
+        res.status(404).send(`Sorry I don't have that book`);
+    }
+})
 
 //Starts the server
 app.listen(port, ()=>{
