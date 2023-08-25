@@ -3,7 +3,7 @@ import cors from "cors";
 import path from "path";
 import BOOKS from "./books.js";
 
-
+//initialize express
 const app = express()
 const port = 3000;
   
@@ -23,7 +23,6 @@ app.get('/books', (req, res)=> {
     console.log(BOOKS)
     res.json(BOOKS)
 })
-
 
 app.get('/books/:id', (req, res) => {
     const { id } = req.params;
