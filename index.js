@@ -62,7 +62,7 @@ app.delete('/books/:id', (req, res) => {
         res.status(200).json({ message: 'The book is deleted successfully' });
     }
     else{
-        res.status(404).send(`Sorry I don't have that book`);
+        res.status(404).send(`The book does not already exist.`);
     }
 })
 
